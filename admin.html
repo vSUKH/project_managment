@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %} <!-- your custom header -->
+
+<head>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+
+    .sidebar {
+      background-color: #343a40;
+      color: white;
+      width: 250px;
+      padding-top: 20px;
+      float: left;
+      min-height: 100vh;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      background-color: #f5f7fa;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar placed below the header now -->
+<div class="sidebar">
+  <h4 class="text-center mb-4">Admin Panel</h4>
+  <a href="/addproject">Add Project</a>
+  <a href="/updateproject">Update Project</a>
+  <a href="/viewprojects">View/Delete Projects</a>
+  <a href="/addemployee">Add Employee</a>
+  <a href="/viewemployees">View/Remove Employees</a>
+  <!-- <a href="/assignproject">Add Task</a> -->
+  <a href="/assigntask">Assign Task</a>
+  <a href="/viewtask">View Task</a>
+  <a href="/completed">Completed Task</a>
+  <a href="/pending">Pending Task</a>
+  <a href="/">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+  <div class="container-fluid">
+    <h2 class="mb-4">Welcome, Admin!</h2>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card bg-primary text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Total Projects</h5>
+            <p class="card-text fs-4">{{ total_projects }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-success text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Active Projects</h5>
+            <p class="card-text fs-4">{{ active_projects }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-warning text-dark mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Pending Projects</h5>
+            <p class="card-text fs-4">{{ pending_projects }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card bg-danger text-white mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Overdue</h5>
+            <p class="card-text fs-4">{{ overdue_projects }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: "{{ 'success' if category == 'success' else 'error' }}",
+            title: "{{ message }}",
+            showConfirmButton: false,
+            timer: 2000
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+</div>
+
+</body>
+</html>

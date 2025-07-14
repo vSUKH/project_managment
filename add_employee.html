@@ -1,0 +1,66 @@
+{% include 'admin.html' %}
+<body>
+<style>
+    .container{
+        position: relative;
+    }
+</style>
+<div class="container mt-5">
+    <h2>New Employee</h2>
+    <form action="{{ url_for('addemployee') }}" method="POST" style="width: 90%;">
+    <div class="mb-3">
+        <label for="eid" class="form-label">Employee ID</label>
+        <input type="number" class="form-control" name="eid" required>
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastname" required>
+    </div>
+    <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstname" required>
+    </div>
+    <div class="mb-3">
+        <label for="bday" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" name="bday" required>
+    </div>
+    <div class="mb-3">
+        <label for="contact_no" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" name="contact_no" required>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" name="address" required>
+    </div>
+    <div class="mb-3">
+        <label for="pid" class="form-label">Project ID</label>
+        <input type="number" class="form-control" name="pid" required>
+    </div>
+    <div class="mb-3">
+        <label for="statuss" class="form-label">Employment Status</label>
+        <select name="statuss" class="form-control" required>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="On Leave">On Leave</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select name="gender" class="form-control" required>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="date_added" class="form-label">Date Joined</label>
+        <input type="date" class="form-control" name="date_added" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+</form>
+</div>
+</body>
+</html>

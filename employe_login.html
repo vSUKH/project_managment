@@ -1,0 +1,14 @@
+{% include 'header.html' %}
+<body>
+    <div class="container mt-5">
+        <form method="POST" action="/employeelogin" class="border p-4 shadow rounded" style="max-width: 400px; margin: auto;">
+            <h2 class="text-center text-white bg-dark p-2 rounded">Enter Employee Details</h2>
+            <input type="text" name="eid" required placeholder="Employee ID" class="form-control mb-3 mt-4" />
+            <input type="password" name="password" required placeholder="Password" class="form-control mb-3" />
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

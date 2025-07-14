@@ -1,0 +1,47 @@
+{% include 'admin.html' %}
+<body>
+<div class="container mt-5">
+    <h2>Update Project</h2>
+    <form action="/updateproject" method="POST" style="width: 90%;">
+        <div class="mb-3">
+            <label for="project_id" class="form-label">Project ID</label>
+            <input type="number" class="form-control" name="project_id" required value="{{ project_id }}">
+
+        </div>
+        <div class="mb-3">
+            <label for="project" class="form-label">Updated Project Name</label>
+            <input type="text" class="form-control" name="project" required>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Updated Location</label>
+            <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="mb-3">
+            <label for="overall_cost" class="form-label">Updated Overall Cost</label>
+            <input type="number" class="form-control" name="overall_cost" required>
+        </div>
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Updated Start Date</label>
+            <input type="date" class="form-control" name="start_date" required>
+        </div>
+        <div class="mb-3">
+            <label for="deadline" class="form-label">Updated Deadline</label>
+            <input type="date" class="form-control" name="deadline" required>
+        </div>
+        <div class="mb-3">
+            <label for="tid" class="form-label">Updated Team ID (tid)</label>
+            <input type="number" class="form-control" name="tid" required>
+        </div>
+        <div class="mb-3">
+            <label for="proposed_project" class="form-label">Updated Proposed Project (0 or 1)</label>
+            <input type="number" class="form-control" name="proposed_project" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_added" class="form-label">Updated Date Added</label>
+            <input type="date" class="form-control" name="date_added" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Updated</button>
+    </form>
+</div>
+</body>
+</html>

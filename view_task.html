@@ -1,0 +1,50 @@
+{% include 'admin.html' %}
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">All Tasks</h2>
+
+    {% if tasks and tasks|length > 0 %}
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Project ID</th>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Estimated_Day</th>
+          <th>Employe ID</th>
+          <th>Deadline</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for task in tasks %}
+            <tr>
+              <td>{{ task[0] }}</td>
+              <td>{{ task[1] }}</td>
+              <td>{{ task[2] }}</td>
+              <td>
+                {% if task[3] == 0 %}
+                  <span class="text-danger">Incomplete</span>
+                {% else %}
+                  <span class="text-success">Complete</span>
+                {% endif %}
+              </td>
+              <td>{{ task[4] }}</td>
+              <td>{{ task[5] }}</td>
+              <td>{{ task[6] }}</td>
+              <td>
+                <a href="/delete_project/{{ task[0] }}">
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+    </table>
+    {% else %}
+    <p>No tasks or projects found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

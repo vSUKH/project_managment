@@ -1,0 +1,40 @@
+{% include 'admin.html' %}
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Completed tasks</h2>
+
+    {% if tasks and tasks|length > 0 %}
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Project ID</th>
+          <th>Task ID</th>
+          <th>Description</th>
+          <th>Statuss</th>
+          <th>Estimate_days</th>
+          <th>Employe ID</th>
+          <th>Deadline</th>      
+        
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in tasks %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+          <td>{{ row[6] }}</td>        
+                                           
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No tasks found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

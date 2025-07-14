@@ -1,0 +1,50 @@
+{% include 'admin.html' %}
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">All Projects</h2>
+
+    {% if projects and projects|length > 0 %}
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Budget</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Client</th>c
+          <th>Status</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in projects %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+          <td>{{ row[6] }}</td>
+          <td>{{ row[7] }}</td>
+          <td>{{ row[8] }}</td>
+          <td>  <a href="/delete1/{{ row[0]}}">
+                        <input type="button" class="btn btn-danger btn-sm" title="Delete" value="Delete"></button>
+                      </a>
+                    <a href="/updateproject?pid={{ row[0] }}">
+                      <button class="btn btn-success btn-sm" title="Update">Update</button>
+                    </a>
+          </td>                                    
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No projects found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

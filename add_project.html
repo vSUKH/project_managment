@@ -1,0 +1,46 @@
+{% include 'admin.html' %}
+<body>
+<div class="container mt-5">
+    <h2>Add Project</h2>
+    <form action="{{ url_for('add_project') }}" method="POST" style="width: 90%;">
+        <div class="mb-3">
+            <label for="project_id" class="form-label">Project ID</label>
+            <input type="number" class="form-control" name="project_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="project" class="form-label">Project Name</label>
+            <input type="text" class="form-control" name="project" required>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" name="location" required>
+        </div>
+        <div class="mb-3">
+            <label for="overall_cost" class="form-label">Overall Cost</label>
+            <input type="number" class="form-control" name="overall_cost" required>
+        </div>
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Start Date</label>
+            <input type="date" class="form-control" name="start_date" required>
+        </div>
+        <div class="mb-3">
+            <label for="deadline" class="form-label">Deadline</label>
+            <input type="date" class="form-control" name="deadline" required>
+        </div>
+        <div class="mb-3">
+            <label for="tid" class="form-label">Team ID (tid)</label>
+            <input type="number" class="form-control" name="tid" required>
+        </div>
+        <div class="mb-3">
+            <label for="proposed_project" class="form-label">Proposed Project (0 or 1)</label>
+            <input type="number" class="form-control" name="proposed_project" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_added" class="form-label">Date Added</label>
+            <input type="date" class="form-control" name="date_added" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Project</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% include 'admin.html' %}
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Assign New Task</h2>
+    <form method="POST" action="/assigntask"> <!-- Fix action route -->
+
+      <div class="mb-3">
+        <label for="eid" class="form-label">Select Employee</label>
+        <select class="form-select" name="eid" required>
+          <option value="">-- Select Employee --</option>
+          {% for emp in employees %}
+            <option value="{{ emp[0] }}">{{ emp[0] }} - {{ emp[1] }} {{ emp[2] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="project_id" class="form-label">Select Project</label>
+        <select class="form-select" name="project_id" required>
+          <option value="">-- Select Project --</option>
+          {% for proj in projects %}
+            <option value="{{ proj[0] }}">{{ proj[0] }} - {{ proj[1] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="task_id" class="form-label">Task ID</label>
+        <input type="text" name="task_id" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="descriptions" class="form-label">Task Description</label>
+        <textarea name="descriptions" class="form-control" rows="3" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="statuss" class="form-label">Task Status</label>
+        <select name="statuss" class="form-select" required>
+          <option value="0">Pending</option>
+          <option value="1">Completed</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="estimate_days" class="form-label">Estimated Days</label>
+        <input type="number" name="estimate_days" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Assign Task</button>
+    </form>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        Swal.fire({
+          icon: "{{ 'success' if category == 'success' else 'error' }}",
+          title: "{{ message }}",
+          showConfirmButton: false,
+          timer: 2000
+        });
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% include 'employee_header.html' %}
+<body>
+  <div class="container">
+    <div class="profile-card">
+      <h2 class="mb-4 text-center">👤 My Profile</h2>
+      
+      <div class="mb-3">
+        <span class="profile-label">Name:</span> {{ profile.firstname }} {{ profile.lastname }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Employee ID:</span> {{ profile.eid }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Gender:</span> {{ profile.gender }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Birthday:</span> {{ profile.bday }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Contact No:</span> {{ profile.contact_no }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Address:</span> {{ profile.address }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Project Assigned (pid):</span> {{ profile.pid }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Status:</span> {{ profile.statuss }}
+      </div>
+
+      <div class="mb-3">
+        <span class="profile-label">Joined On:</span> {{ profile.date_added }}
+      </div>
+
+    </div>
+  </div>
+  <div class="mb-3">
+        <label for="statuss" class="form-label"> Status</label>
+        <select name="statuss" class="form-control" required>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="On Leave">On Leave</option>
+        </select>
+        <button type="submit" class="btn btn-primary w-100">CHnage</button>
+    </div>
+
+</body>
+</html>
